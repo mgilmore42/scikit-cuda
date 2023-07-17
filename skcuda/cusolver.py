@@ -20,6 +20,7 @@ import numpy as np
 
 from . import cuda
 from . import cublas
+from . import utils
 
 # Load library:
 _linux_version_list = [11.0, 10.2, 10.1, 10.0, 9.2, 9.1, 9.0, 8.0, 7.5, 7.0]
