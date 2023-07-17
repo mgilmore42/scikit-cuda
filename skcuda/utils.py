@@ -10,6 +10,7 @@ import os
 import re
 import subprocess
 import struct
+import glob
 
 import sys
 if sys.version_info < (3,):
@@ -207,3 +208,12 @@ def find_lib_path(name):
 
     # Follow symbolic links to the actual file:
     return os.path.realpath(res.group(1))
+
+
+def resolve_lib(name):
+    paths = os.environ.get('LD_LIBRARY_PATH', '').split(':')
+    for path in paths:
+        for lib_file in glob.glob(os.path.join(path, f"{name}*")):
+            if os.path.isfile(lib_file):
+                return os.path.basename(lib_file)
+    return None
