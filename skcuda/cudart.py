@@ -6,6 +6,7 @@ Python interface to CUDA runtime functions.
 
 import atexit, ctypes, platform, re, sys, warnings
 import numpy as np
+from . import utils
 
 # Load library:
 _linux_version_list = [11.0, 10.2, 10.1, 10.0, 9.2, 9.1, 9.0, 8.0, 7.5, 7.0, 6.5, 6.0, 5.5, 5.0, 4.0]
